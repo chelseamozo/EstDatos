@@ -1,0 +1,51 @@
+//Pares.h
+#pragma once
+class Pares
+{
+private:
+	int p;
+public:
+	Pares(int _p);
+	~Pares(void);
+	int detpares();
+};
+//Pares.cpp
+#include "StdAfx.h"
+#include "Pares.h"
+Pares::Pares(int _p)
+{
+	p=_p;
+}
+Pares::~Pares(void)
+{
+}
+int Pares::detpares()
+{
+	int ban=0;
+	do
+	{ 
+	  if ((p%10)%2==0)
+	  { ban=1;
+	  }
+	  p=p/10;
+	} while(p>0);
+	return ban;
+}
+//EjemploPares.cpp
+#include "stdafx.h"
+#include "Pares.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+void main()
+{ int p;
+	cout<<"Ingrese un numero: ";
+	cin>>p;
+	Pares p1(p);
+	if (p1.detpares()==1)
+	{ cout<<"Hay numeros pares";
+	} else
+	{ cout<<"No hay numeros pares";
+	}
+	getch();
+}
