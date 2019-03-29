@@ -1,0 +1,48 @@
+//Datospersona.h
+#pragma once
+class persona
+{
+private: //atributos
+	int CI;
+	int edad;
+public: //metodos
+	persona(int _CI, int _edad);
+	void leer();
+	void comer();
+	~persona(void);
+};
+//Datospersona.cpp
+#include "StdAfx.h"
+#include "Daatospersona.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+persona::persona(int _CI, int _edad)
+{
+	CI = _CI;
+	edad = _edad;
+}
+persona::~persona()
+{
+}
+void persona::leer()
+{ 
+	cout<<"Mi CI es "<<CI<<" Tengo "<<edad<<" y estoy leyendo"<<endl;
+}
+void persona::comer()
+{
+	cout<<"Mi CI es "<<CI<<" Tengo "<<edad<<" y estoy comiendo"<<endl;
+}
+//ejemploDatospersona.cpp
+#include "stdafx.h"
+#include <iostream>
+#include "Datospersona.h"
+#include "conio.h"
+using namespace std;
+void main()
+{
+   persona p1 = persona(8144699,19);
+   p1.leer();
+   p1.comer();
+   getch();
+}
