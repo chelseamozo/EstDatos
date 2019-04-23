@@ -1,0 +1,56 @@
+#pragma once
+class Pares
+{
+private: 
+	int num;
+public:
+	Pares(int _num);
+	bool verificarPares();
+	~Pares(void);
+};
+#include "StdAfx.h"
+#include "Pares.h"
+Pares::Pares(int _num)
+{
+	num=_num;
+}
+bool Pares::verificarPares()
+{
+	int digito;
+	bool band= false;
+	do
+{ 
+		digito=num%10;
+		if(digito%2==0)
+{ 
+		  band=true;
+		  return (band);
+		}
+Else
+{ 
+		num=num/10;
+	    }
+	}
+while(num>0);
+return(band);
+}
+Pares::~Pares(void)
+{
+}
+--- Ejemplodigitos.cpp : Defines the entry point for the console application.
+#include "stdafx.h"
+#include "Pares.h"
+#include <iostream>
+using namespace std;
+void main()
+{
+	int num;
+	cout<<"Ingrese el numero a verificar: ";
+	cin>>num;
+	Pares n1(num);
+	if(n1.verificarpares()==0)
+	cout<<"No tiene numeros pares"<<endl;
+	else 
+	cout<<"Tiene numeros pares"<<endl;
+	system("pause");
+}
