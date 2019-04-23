@@ -1,0 +1,100 @@
+--Pila.h
+#define MAX 100
+class Pila
+{
+   private:
+                int pilas[MAX];
+                int cima;
+        
+   public:
+                Pilas();
+                bool Apilar(TipoDato &elemento);
+                bool Desapilar();
+                bool CimaPilas(TipoDato &elemento);
+                void LimpiarPilas();
+                void VerPilas();          
+                bool PilasVacia();
+                bool Iguales(Pilas p);
+};
+-- Pilas.cpp
+#include <iostream>
+#include "Pilas.h"
+using namespace std;
+Pilas::Pilas()
+{              
+cima = -1;        
+}
+bool Pilas::Apilar(TipoDato &elemento)
+{
+bool res;
+if (cima == MAX-1)
+{  
+ cout << "Desbordamiento de Pila (Overflow)" << endl;
+  res=false;
+}
+else
+    {
+cima++;
+Pilas[cima] = elemento;
+res = true;
+}
+return res;
+}
+bool Pilas::Desapilar()
+{
+bool res;
+if(cima == -1)
+{   
+cerr << "Se esta intentando quitar un elemento de una pila vacia (underflow)" << endl;  res=false;
+}
+Else
+ {
+     cima--;
+     res = true;
+}
+return res;
+}
+void Pilas::VerPila()
+{
+for(int i=0;i<=cima;i++)
+cout << Pilas[i] << endl;
+}
+bool Pilas::CimaPilas(TipoDato &elemento)
+{
+bool res;
+if(PilasVacia())//(cima == -1)
+{
+cerr << "Se esta intentando quitar un elemento de una pila vacia (underflow)" << endl;
+res = false;
+}
+Else
+   {
+ Pilas[cima];
+cima--;
+res = true;
+}
+return res;
+}
+bool Pilas::PilasVacia()
+{
+return cima == -1;
+}
+void Pilas::LimpiarPila()
+{
+cima = -1;
+}
+bool Pilas::Iguales(Pilas p)
+{
+TipoDato a , b;
+TipoDato array[MAX];
+
+bool iguales=false;
+int i=cima;
+while (p.CimaPilas(b) && array[i--]==b)
+{
+    p.Desapilar();
+}
+if(i<0 && p.PilasVacia())
+iguales=true;
+return;
+}
