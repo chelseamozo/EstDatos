@@ -1,0 +1,120 @@
+--Matriz.h
+#pragma once
+#define MAX 10
+class Matriz
+{
+private:
+    int mat[MAX][MAX];
+    int a,b;
+public:
+    Matriz (int _a, int _b);
+    ~ Matriz(void);
+    void cargarmat ();
+    void mostrarmat ();
+    void devolvermat (int _mat[MAX][MAX]);
+    void sumarmat (int _mat1[MAX][MAX], int _mat2[MAX][MAX]);
+void transpuesta(int _mat1[MAX][MAX]);
+};
+--Matriz.cpp
+#include <iostream>
+#include "Matriz.h"
+#include "StdAfx.h"
+#define MAX 10
+using namespace std;
+Matriz::Matriz(int _a,int _b)
+{  a=_a;
+   b=_b;
+}
+Matriz::~Matriz(void)
+{
+}
+void Matriz::cargarmat()
+{   for (int n=0;n<a;a++)
+        for (int m=0;m<b;b++)
+        {
+            cout<<"ingresar m["<<n<<"]["<<m<<"]=";
+            cin>>mat[n][m];
+        }
+}
+void Matriz::mostrarmat()
+{
+    for (int n=0;n<a;n++)
+        {
+            for (int m=0;m<b;m++)
+            {
+                cout<<mat[n][m];
+            }
+            cout<<endl;
+        }
+}
+void Matriz::devolvermat(int _mat[MAX][MAX])
+{
+    for (int n=0;n<a,n++)
+        for (int m=0;m<b;m++)
+        {
+            _mat[n][m]=mat[n][m];
+        }
+}
+void Matriz::sumarmat(int _mat1[MAX][MAX],int _mat2[MAX][MAX])
+{
+    for (int n=0;n<a;n++)
+        {for (int m=0;m<b;m++)
+{
+     mat[n][m]=_mat1[n][m]+_mat2[n][m];
+    }
+	}
+}
+void Matriz::transpuesta(int _mat1[MAX][MAX])
+{
+ int aux;
+for(int n=0;n<a;n++)
+for (int m=0;m<b;m++)
+mat[m][n]=_mat1[n][m];
+  aux=b;
+  b=a;
+  a=aux;
+}
+//EjemploMatriz.cpp
+#include <iostream>
+#include "conio.h"
+#include "StdAfx.h"
+#include "Matriz.h"
+#define MAX 10
+using namespace std;
+void main()
+{
+int n1, m1, opcion,mat1[MAX][MAX];
+cout<<"Numero de filas para matriz A: ";
+cin>>n1;
+cout<<"Numero de columnas para matriz A: ";
+cin>>m1;
+Matriz M1(n1,m1);
+	do{
+	cout<<"**************M E N U ****************";
+	cout<<endl<<"1.-Cargar";
+	cout<<endl<<"2.-Mostrar";
+	cout<<endl<<"3.-Matriz transpuesta";
+	cout<<endl<<"4.-Suma de matrices";
+	cout<<endl<<"0.-Salir";
+	cout<<endl<<"Seleccione su opcion: ";
+	cin>>opcion;
+	switch(opcion)
+	{
+		case 1:
+		M1.cargarmat();
+		break;
+		case 2:
+		M1.mostrarmat();
+		break;
+		case 3:
+		M1.devolvermat(mat1);
+		M1.transpuesta(mat1);
+		break;
+		case 4:
+		break;
+		case 0:
+		break;
+	}
+		}while(opcion != 0);
+getch();
+}
