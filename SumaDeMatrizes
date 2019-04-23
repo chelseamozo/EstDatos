@@ -1,0 +1,98 @@
+Sumar matrices
+#pragma once
+class matriz
+{ 
+private:
+                int mat[10][10];
+                int b,a;
+public:
+                matriz(int _a, int _b);
+                ~matriz(void);
+                void cargarmat();
+                void mostrarmat();
+                void devolvermat(int _mat[10][10]);
+                void sumarmat(int _mat1[10][10],int _mat2[10][10]);
+};
+#include "iostream"
+#include "StdAfx.h"
+#include "matriz.h"
+using namespace std;
+matriz::matriz(int _a,int _b)
+{
+    a=_a;
+    b=_b;
+}
+matriz::~matriz(void)
+{
+}
+void matriz::cargarmat()
+{
+    for (int n=0;n<a;n++)
+        for (int m=0;m<b;m++)
+        {
+            cout<<"ingresar mat["<<n<<"]["<<m<<"]=";
+            cin>>mat[n][m];
+        }
+    }
+void matriz::mostrarmat()
+{
+    for (int n=0;n<a;n++)
+        {
+            for (int m=0;m<b;m++)
+            {
+                cout<<mat[n][m];
+            }
+            cout<<endl;
+        }
+}
+void matriz::devolvermat(int _mat[10][10])
+{
+    for (int n=0;n<a;n++)
+        for (int m=0,m<b;m++)
+        {
+            _mat[n][m]=mat[n][m];
+        }
+}
+void matriz::sumarmat(int _mat1[10][10],int _mat2[10][10])
+{
+    for (int n=0;n<a;n++)
+        {for (int m=0;m<b;m++)
+        {
+            mat[n][m]=_mat1[n][m]+_mat2[n][m];         
+        }}
+}
+--arrays.cpp
+#include "matriz.h"
+#include "iostream"
+#include "conio.h"
+#include "StdAfx.h"
+using namespace std;
+void main()
+{
+    int nrow,ncol,mat1[10][10],mat2[10][10];
+    do
+{
+        cout<<"ingrese num fil: ";
+        cin>>nrow;
+    }
+while(nrow<0||nrow>10);
+    Do
+{
+        cout<<"ingrese num col: ";
+        cin>>ncol;
+    }
+while(ncol<0||ncol>10);
+    matriz m1(nrow,ncol);
+    matriz m2(nrow,ncol);
+    m1.cargarmat();
+    m1.devolvermat(mat1);
+    m1.mostrarmat();
+    m2.cargarmat();
+    m2.devolvermat(mat2);
+    m2.mostrarmat();
+    matriz m3(nrow,ncol);
+    m3.sumarmat(mat1,mat2);
+    cout<<"la matriz suma es:"<<endl;
+    m3.mostrarmat();
+    getch();
+}
