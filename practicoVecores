@@ -1,0 +1,963 @@
+	PRACTICA Nº 10
+ARREGLOS (VECTORES)
+Chelsea mozo Roth
+1.	Hacer un programa para sacar el máximo valor de un vector de valores ya sean reales o enteros.
+//ejercicio1.h
+#pragma once
+class vector
+{
+private: float vec[100];
+         int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	float maximovalor(int n);
+};
+
+//ejercicio1.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int m=0;m<n;m++)
+{cout<<"V["<<m+1<<"]= ";cin>>vec[m];
+}
+}
+float vector::maximovalor(int n)
+{float aux=vec[0];
+	for (int m=0;m<n;m++)
+	{if (vec[m]>aux) {aux=vec[m];}
+    }return aux;
+}
+
+// ejercicio1.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+cout<<"El valor mas alto del vector es: "<<v1.maximovalor(n);
+getch();
+}
+
+2.	Hacer un programa para sacar el mínimo valor de un vector de valores ya sean reales o enteros.
+
+//ejercicio2.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	float minimovalor(int n);
+};
+
+//ejercicio2.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int z=0;z<n;z++)
+{cout<<"V["<<z+1<<"]= ";cin>>vec[z];
+}
+}
+float vector::minimovalor(int n)
+{float aux=vec[0];
+	for (int z=0;a<n;z++)
+	{if (vec[z]<aux) {aux=vec[z];}
+    }return aux;
+}
+
+// ejercicio2.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+cout<<"El valor mas bajo del vector es: "<<v1.minimovalor(n);
+getch();
+}
+
+3.	Hacer un programa para sacar el promedio de valores de un vector.
+
+//ejercicio3.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	float promedio(int n);
+};
+
+//ejercicio3.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int v=0;v<n;v++)
+{cout<<"V["<<v+1<<"]= ";cin>>vec[v];
+}
+}
+float vector::promedio(int n)
+{float aux=0;
+	for (int v=0;v<n;v++)
+	{aux=aux+vec[v];}
+    return (aux/n);
+}
+
+// ejercicio3.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+cout<<"El promedio del vector es: "<<v1.promedio(n);
+getch();
+}
+
+4.	Hacer un programa para revertir la lista de valores de un vector, en otro vector, es decir se debe mantener el vector original.
+//ejercicio4.h
+#pragma once
+class Revertir
+{
+private:
+       int n ;
+       float C[100],Z[100];
+
+public:
+       Revertir(void);
+       ~Revertir(void);
+       void cargar (float C[], int n);
+       void mostrar (float C[], int n);
+       void revertir (float C[],float Z[],int n);
+};
+
+#include "StdAfx.h"
+#include "Revertir.h"
+#include <iostream>
+ using namespace std;
+Revertir::Revertir(void)
+{
+}
+Revertir::~Revertir(void)
+{
+}
+void Revertir::cargar (float C[], int n)
+{ for (int j=0 ; i<n ;j++)
+     { cout<<"V["<<j+1<<"] : ";
+       cin>>C[j] ;
+     } 
+}
+void Revertir::mostrar (float C[], int n)
+{ for (int j=0 ; j<n ;j++)
+     { cout<<C[j]<<"   ";
+     }
+}
+void Revertir::revertir (float C[],float Z[],int n)
+{  int a=1;
+   cout<<"\n";
+       for (int j=0; j<n ; j++ )
+        { Z[n-a]=C[j];
+          a++;
+        }
+}
+
+// ejercicio4main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "Revertir.h"
+ using namespace std ;
+void main ()
+{ int N ;
+  float C[100],Z[100];
+  do { cout<<"ingrese cantidad de elementos : ";
+       cin>> N ;
+     }while (N>100 || N<0);
+  Revertir V1 , V2 ;
+  V1.cargar (C,N);
+  V1.mostrar (C,N);
+  V2.revertir(C,Z,N);
+  V2.mostrar(Z,N);
+getch();
+}
+5.	Hacer un programa para determinar si un vector es capicúa, es decir, si el vector revertido es igual al inicial, se dice que el vector es capicúa.
+//ejercicio5.h
+#pragma once
+#include "string.h"
+class Vector
+{
+private:
+	int n; char S[100];
+public:
+	Vector(void);
+	~Vector(void);
+	bool capicua(char S[], int n);
+};
+
+//ejercicio5.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+bool Vector::capicua (char S[], int n)
+{ bool res=true;
+	for(int s=0,b=n-1;s<(n/2);s++,b--)
+	{if (S[s]!=S[b]){res=false;}
+}
+ return res;
+}
+
+// ejercicio5main
+
+#include "stdafx.h"
+#include <string>
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+void main()
+{int N;bool res; char S[100];
+cout<<"Ingrese la frase a validar"<<endl;
+Vector V1;
+cin.getline(s,'\n');
+N=strlen(s);
+res=V1.capicua(s,N);
+if(res==true) {cout<<"La frase es capicua";}
+else {cout<<"La frase no es capicua";}
+getch();
+}
+6.	Sacar el promedio de cada tres valores consecutivos en un vector.
+P1= A1 + A2 + A3 
+P2= A2 + A3 + A4
+P3= A3 + A4 + A5
+……………………
+//ejercicio6.h
+#pragma once
+class Vector
+{
+private:
+	int n; float V[100];
+public:
+	Vector(void);
+	~Vector(void);
+	void cargar(float V[], int n);
+	void promediar(float V[], int n);
+};
+
+//ejercicio6.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargar (float V[], int n)
+{ for (int j=0;j<n;j++)
+ {cout<<"["<<j+1<<"]=";cin>>V[j];
+ }
+}
+
+void Vector::promediar (float V[], int n)
+{for (int j=0;j<n-2;j++)
+ {cout<<"P["<<j+1<<"]="<<(V[j]+V[j+1]+V[j+2])/3<<"  ";
+ }
+}
+
+// ejercicio6main
+
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+void main()
+{int N; float j[100];
+do{ cout<<"Ingrese el tamanio del vector: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1;
+V1.cargar(j,N);
+cout<<"Los promedios son: "<<endl;
+V1.promediar(j,N);
+getch();
+}
+
+7.	Dado un número entero, el programa debe devolver el valor escrito literalmente. Por ejemplo si se da 12 debe devolver 'DOCE'. Hacer esto hasta el valor 20. ¿ Es posible generalizar para 30, 31, 32, ....100,101,... etc. ?.
+//ejercicio7.h
+#pragma once
+class Literal
+{
+private:
+	int n;
+public:
+	Literal(void);
+	~Literal(void);
+	void convertir (int n);
+};
+
+//ejercicio7.cpp
+#include "StdAfx.h"
+#include "Literal.h"
+#include <iostream>
+using namespace std;
+
+
+Literal::Literal(void)
+{
+}
+
+
+Literal::~Literal(void)
+{
+}
+
+void Literal::convertir (int n)
+{switch(n)
+{case 1: cout<<"El numero "<<n<<" se escribe UNO"<<endl;break;
+ case 2: cout<<"El numero "<<n<<" se escribe DOS"<<endl;break;
+ case 3: cout<<"El numero "<<n<<" se escribe TRES"<<endl;break;
+ case 4: cout<<"El numero "<<n<<" se escribe CUATRO"<<endl;break;
+ case 5: cout<<"El numero "<<n<<" se escribe CINCO"<<endl;break;
+ case 6: cout<<"El numero "<<n<<" se escribe SEIS"<<endl;break;
+ case 7: cout<<"El numero "<<n<<" se escribe SIETE"<<endl;break;
+ case 8: cout<<"El numero "<<n<<" se escribe OCHO"<<endl;break;
+ case 9: cout<<"El numero "<<n<<" se escribe NUEVE"<<endl;break;
+ case 10: cout<<"El numero "<<n<<" se escribe DIEZ"<<endl;break;
+ case 11: cout<<"El numero "<<n<<" se escribe ONCE"<<endl;break;
+ case 12: cout<<"El numero "<<n<<" se escribe DOCE"<<endl;break;
+ case 13: cout<<"El numero "<<n<<" se escribe TRECE"<<endl;break;
+ case 14: cout<<"El numero "<<n<<" se escribe CATORCE"<<endl;break;
+ case 15: cout<<"El numero "<<n<<" se escribe QUINCE"<<endl;break;
+ case 16: cout<<"El numero "<<n<<" se escribe DEICISEIS"<<endl;break;
+ case 17: cout<<"El numero "<<n<<" se escribe DIECISIETE"<<endl;break;
+ case 18: cout<<"El numero "<<n<<" se escribe DIECIOCHO"<<endl;break;
+ case 19: cout<<"El numero "<<n<<" se escribe DIECINUEVE"<<endl;break;
+ case 20: cout<<"El numero "<<n<<" se escribe VEINTE"<<endl;break;
+}
+}
+
+// ejercicio7main
+
+#include "stdafx.h"
+#include "Literal.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+
+void main()
+{int n;
+do{cout<<"Ingrese un numero entre el 1 y 20"<<endl;
+   cin>>n;
+   if(n<1||n>20) {cout<<"Numero no valido"<<endl;}
+}while(n<1||n>20);
+Literal n1;
+n1.convertir(n);
+getch();
+}
+
+8.	Dado un vector A de n números reales, obténgase la diferencia más grande entre dos elementos consecutivos de este vector.
+//ejercicio14.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	void maydif(int n);
+};
+
+//ejercicio8.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int c=0;c<n;c++)
+{cout<<"V["<<c+1<<"]= ";cin>>vec[c];
+}}
+
+void vector::maydif(int n)
+{int pos1=0, pos2=1, dif=abs(vec[0]-vec[1]);
+for(int c=0;c<n-1;c++)
+
+{if (abs(vec[a]-vec[c+1])>dif) {dif=abs(vec[c]-vec[c+1]);pos1=c;pos2=c+1;}
+
+}
+cout<<"La mayor diferencia es de "<<dif<<" entre V["<<pos1+1<<"] y V["<<pos2+1<<"]"<<endl;
+}
+
+// ejercicio8.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+
+void main()
+{int n,c; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+v1.maydif (n);
+getch();
+}
+9.	Concatenar dos vectores de tamaño n y m respectivamente. [a1,a2,......an;]  [b1,b2,....bm]; concatenado resulta [a1,a2,......an,b1,b2,....bm] con n+m elementos.
+//ejercicio9.h
+#pragma once
+class Vector
+{
+private:
+	int n; float C[100], D[100], E[200];
+public:
+	Vector(void);
+	~Vector(void);
+	void cargar(float C[], int n);
+	void mostrar (float C[], int n);
+	void concatenar (float C[], float D[], float E[],int n);
+};
+
+//ejercicio9.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargar (float C[], int n)
+{ for (int g=0;g<n;g++)
+ {cout<<"["<<g+1<<"]=";cin>>C[g];
+ }
+}
+
+void Vector:: mostrar (float C[], int n)
+{for (int g=0;g<n;g++)
+ {cout<<"["<<g+1<<"]="<<C[g]<<"  ";
+ }
+}
+
+void Vector::concatenar (float C[], float D[], float E[], int n)
+{ int cont=0;
+for(int g=0;g<n;g++)
+{E[cont]=C[g]; cont++;
+}
+cont=n;
+for(int i=0;i<n;i++)
+{E[cont]=D[i]; cont ++;
+}
+}
+
+
+// ejercicio9main
+
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+void main()
+{int N; float C[100], D[100], E[200];
+do{ cout<<"Ingrese el tamanio de los vectores: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1,V2,V3;
+V1.cargar(C,N);
+V2.cargar(D,N);
+V3.concatenar(C,D,E,N);
+V3.mostrar (E,2*N);
+getch();
+}
+10.	Intercalar dos vectores A y B clasificados ascendentemente de tamaño n y m respectivamente en uno solo de tal forma que el resultado sea un vector clasificado.
+//ejercicio10.h
+#pragma once
+class Vector
+{
+private:
+	int n; float E[100], R[100], T[200];
+public:
+	Vector(void);
+	~Vector(void);
+	void cargar(float E[], int n);
+	void mostrar (float E[], int n);
+	void concatenar (float E[], float R[], float T[],int n);
+	void ordenar( float E[], int n);
+};
+
+//ejercicio10.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargar (float E[], int n)
+{ for (int a=0;a<n;a++)
+ {cout<<"["<<a+1<<"]=";cin>>E[a];
+ }
+}
+
+void Vector:: mostrar (float E[], int n)
+{for (int a=0;a<n;a++)
+ {cout<<"["<<a+1<<"]="<<E[a]<<"  ";
+ }
+}
+
+void Vector::concatenar (float E[], float R[], float T[], int n)
+{ int cont=0;
+for(int a=0;a<n;a++)
+{T[cont]=E[a]; cont++;
+}
+cont=n;
+for(int i=0;i<n;i++)
+{T[cont]=R[i]; cont ++;
+}
+}
+
+void Vector::ordenar(float E[], int n)
+{float aux;
+ for(int a=0;a<n-1;a++)
+{for (int b=a+1;b<n;b++)
+ {if(E[b]<E[a]){aux=E[a];E[a]=E[b];E[b]=aux;}
+}
+}
+}
+
+// ejercicio10main
+
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+void main()
+{int N; float E[100], R[100], T[200];
+do{ cout<<"Ingrese el tamanio de los vectores: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1,V2,V3;
+V1.cargar(E,N); V1.ordenar (E,N);
+V2.cargar(R,N); V2.ordenar (R,N);
+V3.concatenar(E,R,T,N); V3.ordenar (T,2*N);
+cout<<"Los vectores unidos y ordenados son: "<<endl;
+V3.mostrar (T,2*N);
+getch();
+}
+11.	Hacer un programa que permita contar número de valores negativos, positivos y ceros que hay en un vector.
+//ejercicio11.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	void contar(int n);
+};
+
+//ejercicio11.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int m=0;m<n;m++)
+{cout<<"V["<<m+1<<"]= ";cin>>vec[m];
+}}
+
+void vector::contar(int n)
+{int neg=0, cer=0, pos=0;
+ for (int m=0; m<n;m++)
+ {if (vec[m]<0)
+     {neg++;}
+     else{if (vec[m]==0) 
+          {cer++;}else{pos++;}
+     }
+ }
+ cout<<"En el vector hay "<<neg<<" elementos negativos"<<endl;
+ cout<<"En el vector hay "<<cer<<" elementos iguales a 0"<<endl;
+ cout<<"En el vector hay "<<pos<<" elementos positivos"<<endl;
+}
+
+// ejercicio11.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+
+void main()
+{int n; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+v1.contar(n);
+getch();
+}
+12.	Hacer un programa para eliminar los  números duplicados de un vector.
+//ejercicio12.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	int eliminardup(int n);
+	void mostrar(int n, int c);
+};
+
+//ejercicio12.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int g=0;g<n;g++)
+{cout<<"V["<<g+1<<"]= ";cin>>vec[g];
+}}
+
+int vector::eliminardup(int n)
+{int cont=0;
+for (int g=0;g<n;g++)
+     {for (int b=g+1;g<n;b++)
+          {if (vec[b]==vec[g])
+               {for(int c=b; c<n-1;c++)
+                   {vec[c]=vec[c+1];
+                   }cont++;
+               }
+          }
+     }
+return (cont);}
+
+// ejercicio12.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n,c; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+c=v1.eliminardup(n);cout<<c;getch();
+cout<<"Eliminando los duplicados el vector es:"<<endl;
+v1.mostrar(n,c);
+getch();
+}
+
+13.	Hacer un programa para revertir una lista en el mismo vector.
+//ejercicio13.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	void revertir (int n);
+	void mostrar (int n);
+};
+
+//ejercicio13.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int a=0;a<n;a++)
+{cout<<"V["<<a+1<<"]= ";cin>>vec[a];
+}}
+
+void vector::revertir(int n)
+{float aux;
+for (int a=0,b=n-1; a<n/2; a++,b--)
+{aux= vec[a]; vec[a]=vec[b]; vec[b]=aux;
+}
+}
+
+void vector::mostrar(int n)
+{for (int a=0; a<n; a++)
+{cout<<"V["<<a+1<<"]= "<<vec[a]<<endl;
+}
+}
+
+// ejercicio13.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+
+void main()
+{int n,c; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+v1.revertir (n);
+cout<<"El vector invertido es: "<<endl;
+v1.mostrar (n);
+getch();
+}
+
+14.	Hacer un programa para clasificar una lista de valores (entero o realies) en orden ascendente.
+//ejercicio14.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	void ordenar (int n);
+	void mostrar (int n);
+};
+
+//ejercicio14.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int a=0;a<n;a++)
+{cout<<"V["<<a+1<<"]= ";cin>>vec[a];
+}}
+
+void vector::ordenar(int n)
+{float aux;
+for (int a=0; a<n-1; a++)
+{for(int b=a+1;b<n;b++)
+{if (vec[b]<vec[a]) {aux=vec[a];vec[a]=vec[b]=vec[b]=aux;}
+}
+}
+}
+
+void vector::mostrar(int n)
+{for (int a=0; a<n; a++)
+{cout<<"V["<<a+1<<"]= "<<vec[a]<<endl;
+}
+}
+
+// ejercicio14.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+
+void main()
+{int n,c; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+v1.ordenar (n);
+cout<<"El vector ordenado de forma ascendente es: "<<endl;
+v1.mostrar (n);
+getch();
+}
+
+17.Generar los primeros n números de Fibonacci en un vector.
+//ejercicio17.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void mostrar(int n);
+	void fibonacci(int n);
+};
+
+//ejercicio17.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::mostrar(int n)
+{for (int m=0;m<n;m++)
+{cout<<vec[m]<< "   ";
+}}
+
+void vector::fibonacci(int n)
+{int m=1,b=1;
+vec[0]=m;vec[1]=b;
+for (int j=2;j<n;j++)
+{vec[j]= vec[j-1]+vec[j-2];
+}
+}
+
+// ejercicio17.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+
+void main()
+{int n,c; float vec[100];
+do{ cout<<"Ingrese la cantidad de terminos de la cadena a encontrar: "; cin>>n;}
+while (n<=2);
+vector v1(n);
+v1.fibonacci(n);
+v1.mostrar(n);
+getch();
+}
